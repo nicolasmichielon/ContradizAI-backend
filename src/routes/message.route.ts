@@ -1,4 +1,3 @@
-// routes/message.ts
 import express from 'express';
 import { postUserMessage, getMessagesByChatId } from '../controllers/message.controller';
 const router = express.Router();
