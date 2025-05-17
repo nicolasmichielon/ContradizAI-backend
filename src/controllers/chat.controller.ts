@@ -1,4 +1,3 @@
-// controllers/chatController.ts
 import { Request, Response } from 'express';
 import * as chatService from '../services/chat.service';
 

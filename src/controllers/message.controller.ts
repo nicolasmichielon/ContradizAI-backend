@@ -1,4 +1,3 @@
-// controllers/message.controller.ts
 import { Request, Response } from 'express';
 import * as messageService from '../services/message.service';
 

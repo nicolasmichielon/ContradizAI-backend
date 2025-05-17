@@ -1,4 +1,3 @@
-// services/chatService.ts
 import { supabase } from "..";
 
 export async function createChat(userId: string) {
