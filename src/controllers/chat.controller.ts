@@ -17,16 +17,31 @@ export async function createChat(req: Request, res: Response) {
 }
 
 export async function getChatById(req: Request, res: Response) {
-  const chat = await chatService.getChatById(req.params.id);
-  res.json(chat);
+  try {
+    const chat = await chatService.getChatById(req.params.id);
+    res.json(chat);
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+    res.status(500).json({ error: errorMessage });
+  }
 }
 
 export async function getChatsByUserId(req: Request, res: Response) {
-  const chats = await chatService.getChatsByUserId(req.params.userId);
-  res.json(chats);
+  try {
+    const chats = await chatService.getChatsByUserId(req.params.userId);
+    res.json(chats);
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+    res.status(500).json({ error: errorMessage });
+  }
 }
 
 export async function endChat(req: Request, res: Response) {
-  const chat = await chatService.endChat(req.params.id);
-  res.json(chat);
+  try {
+    const chat = await chatService.endChat(req.params.id);
+    res.json(chat);
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+    res.status(500).json({ error: errorMessage });
+  }
 }
