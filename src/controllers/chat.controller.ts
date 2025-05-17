@@ -4,8 +4,17 @@ import * as chatService from '../services/chat.service';
 
 export async function createChat(req: Request, res: Response) {
   const { userId } = req.body;
-  const chat = await chatService.createChat(userId);
-  res.json(chat);
+  if (!userId) {
+    return res.status(400).json({ error: 'Missing userId in request body' });
+  }
+
+  try {
+    const chat = await chatService.createChat(userId);
+    res.status(201).json(chat);
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+    res.status(500).json({ error: errorMessage });
+  }
 }
 
 export async function getChatById(req: Request, res: Response) {
