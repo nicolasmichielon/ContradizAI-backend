@@ -30,13 +30,13 @@ export const getUserById = async (req: Request, res: Response) => {
 
 export const loginUser = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password are required' });
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required' });
     }
 
-    const { user, token } = await userService.loginUser(email, password);
+    const { user, token } = await userService.loginUser(username, password);
     res.json({ user, token });
   } catch (error: any) {
     console.error('Error during login:', error);
