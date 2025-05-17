@@ -10,6 +10,16 @@ export const createUser = async (userData: CreateUserDto) => {
   // Hash password before storing
   const hashedPassword = await bcrypt.hash(userData.password, SALT_ROUNDS);
 
+  const { data: existingUser, error: existingUserError } = await supabase
+    .from('users')
+    .select()
+    .eq('username', userData.username)
+    .single();
+
+  if (existingUser) {
+    throw new Error('User already exists');
+  }
+
   const { data: user, error } = await supabase
     .from('users')
     .insert([{ ...userData, password: hashedPassword }])
