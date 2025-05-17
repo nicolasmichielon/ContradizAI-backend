@@ -4,7 +4,7 @@ import { MessageContentType, MessageHistory, MessageRole } from "../dtos/message
 export const getAnthropicResponse = async (prompt: string, systemPrompt: string) => {
   const msg = await anthropic.messages.create({
     model: "claude-3-5-haiku-20241022",
-    max_tokens: 1000,
+    max_tokens: 4096,
     temperature: 1,
     system: systemPrompt,
     messages: [
@@ -25,7 +25,7 @@ export const getAnthropicResponse = async (prompt: string, systemPrompt: string)
 export const getAnthropicResponseWithHistory = async (prompt: string, systemPrompt: string, history: MessageHistory) => {
   const msg = await anthropic.messages.create({
     model: "claude-3-5-haiku-20241022",
-    max_tokens: 1000,
+    max_tokens: 4096,
     temperature: 1,
     system: systemPrompt,
     messages: [
