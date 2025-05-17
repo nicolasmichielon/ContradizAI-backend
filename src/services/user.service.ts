@@ -1,5 +1,5 @@
 import { supabase } from '../index';
-import { CreateUserDto, UpdateUserDto } from '../dtos/user.dto';
+import { CreateUserDto } from '../dtos/user.dto';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 
@@ -23,7 +23,7 @@ export const createUser = async (userData: CreateUserDto) => {
   return userWithoutPassword;
 };
 
-export const getUserById = async (userId: number) => {
+export const getUserById = async (userId: string) => {
   const { data: user, error } = await supabase
     .from('users')
     .select()
@@ -36,50 +36,6 @@ export const getUserById = async (userId: number) => {
   // Remove password from returned object
   const { password, ...userWithoutPassword } = user;
   return userWithoutPassword;
-};
-
-export const updateUser = async (userId: number, userData: UpdateUserDto) => {
-  // If password is being updated, hash it
-  if (userData.password) {
-    userData.password = await bcrypt.hash(userData.password, SALT_ROUNDS);
-  }
-
-  const { data: user, error } = await supabase
-    .from('users')
-    .update(userData)
-    .eq('id', userId)
-    .select()
-    .single();
-
-  if (error) throw error;
-
-  // Remove password from returned object
-  const { password, ...userWithoutPassword } = user;
-  return userWithoutPassword;
-};
-
-export const getUsers = async () => {
-  const { data: users, error } = await supabase
-    .from('users')
-    .select();
-
-  if (error) throw error;
-
-  // Remove passwords from all users
-  return users.map((user: any) => {
-    const { password, ...userWithoutPassword } = user;
-    return userWithoutPassword;
-  });
-};
-
-export const deleteUser = async (userId: number) => {
-  const { error } = await supabase
-    .from('users')
-    .delete()
-    .eq('id', userId);
-
-  if (error) throw error;
-  return true;
 };
 
 export const loginUser = async (email: string, password: string) => {

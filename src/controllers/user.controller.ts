@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateUserDto, UpdateUserDto } from '../dtos/user.dto';
+import { CreateUserDto } from '../dtos/user.dto';
 import * as userService from '../services/user.service';
 
 export const createUser = async (req: Request, res: Response) => {
@@ -15,12 +15,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const getUserById = async (req: Request, res: Response) => {
   try {
-    const userId = parseInt(req.params.id, 10);
-
-    if (isNaN(userId)) {
-      return res.status(400).json({ error: 'Invalid user ID' });
-    }
-
+    const userId = req.params.id;
     const user = await userService.getUserById(userId);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
@@ -32,48 +27,6 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-export const updateUser = async (req: Request, res: Response) => {
-  try {
-    const userId = parseInt(req.params.id, 10);
-
-    if (isNaN(userId)) {
-      return res.status(400).json({ error: 'Invalid user ID' });
-    }
-
-    const userData: UpdateUserDto = req.body;
-    const user = await userService.updateUser(userId, userData);
-    res.json(user);
-  } catch (error: any) {
-    console.error('Error updating user:', error);
-    res.status(500).json({ error: error.message || 'Error updating user' });
-  }
-};
-
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    const users = await userService.getUsers();
-    res.json(users);
-  } catch (error: any) {
-    console.error('Error fetching users:', error);
-    res.status(500).json({ error: error.message || 'Error fetching users' });
-  }
-};
-
-export const deleteUser = async (req: Request, res: Response) => {
-  try {
-    const userId = parseInt(req.params.id, 10);
-
-    if (isNaN(userId)) {
-      return res.status(400).json({ error: 'Invalid user ID' });
-    }
-
-    await userService.deleteUser(userId);
-    res.status(204).send();
-  } catch (error: any) {
-    console.error('Error deleting user:', error);
-    res.status(500).json({ error: error.message || 'Error deleting user' });
-  }
-};
 
 export const loginUser = async (req: Request, res: Response) => {
   try {
