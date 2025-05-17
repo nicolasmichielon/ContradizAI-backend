@@ -4,6 +4,9 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
 import userRoutes from './routes/user.route';
+import chatRoutes from './routes/chat.route';
+import messageRoutes from './routes/message.route';
+import languageRoutes from './routes/language.route';
 
 // Load environment variables
 dotenv.config();
@@ -26,7 +29,10 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
+app.use('/chat', chatRoutes)
+app.use('/message', messageRoutes)
+app.use('/language', languageRoutes)
 
 // Basic health check route
 app.get('/health', (req: Request, res: Response) => {
