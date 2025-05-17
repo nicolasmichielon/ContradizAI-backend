@@ -6,7 +6,6 @@ import { createClient } from '@supabase/supabase-js';
 import userRoutes from './routes/user.route';
 import chatRoutes from './routes/chat.route';
 import messageRoutes from './routes/message.route';
-import languageRoutes from './routes/language.route';
 
 // Load environment variables
 dotenv.config();
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use('/user', userRoutes);
 app.use('/chat', chatRoutes)
 app.use('/message', messageRoutes)
-app.use('/language', languageRoutes)
 
 // Basic health check route
 app.get('/health', (req: Request, res: Response) => {
