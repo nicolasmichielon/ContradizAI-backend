@@ -6,9 +6,15 @@ import { createClient } from '@supabase/supabase-js';
 import userRoutes from './routes/user.route';
 import chatRoutes from './routes/chat.route';
 import messageRoutes from './routes/message.route';
+import Anthropic from '@anthropic-ai/sdk';
 
 // Load environment variables
 dotenv.config();
+
+// Load anthropic API key
+export const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
 
 // Initialize Express app
 const app = express();

@@ -1,10 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { anthropic } from "..";
 import { MessageContentType, MessageHistory, MessageRole } from "../dtos/message.dto";
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
 
 export const getAnthropicResponse = async (prompt: string, systemPrompt: string) => {
   const msg = await anthropic.messages.create({

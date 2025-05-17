@@ -57,7 +57,7 @@ export async function sendMessage(chatId: string, text: string) {
   if (botError) throw botError;
 
   return {
-    botMessage,
+    aiText,
   };
 }
 
