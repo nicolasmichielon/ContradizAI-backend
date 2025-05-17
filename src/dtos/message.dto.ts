@@ -1,22 +1,19 @@
-// dtos/message.dto.ts
-/**
- * DTO for sending a message
- */
-export interface SendMessageDto {
-  chatId: string;
-  sender: 'user' | 'bot';
-  text: string;
-  language_used?: string;
+export interface Message {
+  role: MessageRole;
+  content: {
+    type: MessageContentType;
+    text: string;
+  };
 }
 
-/**
- * DTO for message response
- */
-export interface MessageResponseDto {
-  id: string;
-  chatId: string;
-  sender: 'user' | 'bot';
-  text: string;
-  language_used: string | null;
-  createdAt: Date;
+export interface MessageHistory {
+  messages: Message[];
+}
+
+export enum MessageRole {
+  USER = "user",
+  ASSISTANT = "assistant",
+}
+export enum MessageContentType {
+  TEXT = "text",
 }
