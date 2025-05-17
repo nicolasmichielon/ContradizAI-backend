@@ -38,11 +38,11 @@ export const getUserById = async (userId: string) => {
   return userWithoutPassword;
 };
 
-export const loginUser = async (email: string, password: string) => {
+export const loginUser = async (username: string, password: string) => {
   const { data: user, error } = await supabase
     .from('users')
     .select()
-    .eq('email', email)
+    .eq('username', username)
     .single();
 
   if (error || !user) {
@@ -56,7 +56,7 @@ export const loginUser = async (email: string, password: string) => {
 
   // Generate JWT token
   const token = jwt.sign(
-    { userId: user.id, email: user.email },
+    { userId: user.id, username: user.username },
     JWT_SECRET,
     { expiresIn: '24h' }
   );
