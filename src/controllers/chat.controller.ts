@@ -45,3 +45,13 @@ export async function endChat(req: Request, res: Response) {
     res.status(500).json({ error: errorMessage });
   }
 }
+
+export const deleteChat = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    await chatService.deleteChat(id);
+    return res.status(200).json({ message: 'Chat deleted successfully.' });
+  } catch (error: any) {
+    return res.status(500).json({ message: 'Failed to delete chat.', error: error.message });
+  }
+};

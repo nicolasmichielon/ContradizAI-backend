@@ -23,3 +23,15 @@ export async function endChat(id: string) {
   if (error) throw error;
   return data;
 }
+
+export async function deleteChat(id: string) {
+  const { error } = await supabase
+    .from('chats')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    throw error;
+  }
+  return { success: true };
+}
