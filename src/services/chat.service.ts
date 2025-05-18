@@ -22,12 +22,6 @@ export async function getChatsByUserId(userId: string) {
   return data;
 }
 
-export async function endChat(id: string) {
-  const { data, error } = await supabase.from('chats').update({ ended_at: new Date().toISOString() }).eq('id', id).single();
-  if (error) throw error;
-  return data;
-}
-
 export async function deleteChat(id: string) {
   const { error } = await supabase
     .from('chats')

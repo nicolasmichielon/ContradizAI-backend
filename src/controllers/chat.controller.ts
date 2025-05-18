@@ -33,16 +33,6 @@ export async function getChatsByUserId(req: Request, res: Response) {
   }
 }
 
-export async function endChat(req: Request, res: Response) {
-  try {
-    const chat = await chatService.endChat(req.params.id);
-    res.json(chat);
-  } catch (err) {
-    const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
-    res.status(500).json({ error: errorMessage });
-  }
-}
-
 export const deleteChat = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
