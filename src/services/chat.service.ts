@@ -1,9 +1,13 @@
 import { supabase } from "..";
+import { getAnthropicChatTitle } from "./anthropic.service";
+import { sendMessage } from "./message.service";
 
-export async function createChat(userId: string) {
-  const { data, error } = await supabase.from('chats').insert([{ user_id: userId }]).select().single();
+export async function createChat(userId: string, firstMessage: string) {
+  const chatTitle = await getAnthropicChatTitle(firstMessage);
+  const { data, error } = await supabase.from('chats').insert([{ user_id: userId, title: chatTitle }]).select().single();
+  const message = await sendMessage(data.id, firstMessage);
   if (error) throw error;
-  return data;
+  return { chat: data, message };
 }
 
 export async function getChatById(id: string) {
