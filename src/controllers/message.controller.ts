@@ -5,10 +5,6 @@ export async function postUserMessage(req: Request, res: Response) {
   try {
     const { chatId, text } = req.body;
 
-    if (!chatId || !text) {
-      return res.status(400).json({ error: 'Missing required fields: chatId, sender, or text' });
-    }
-
     const result = await messageService.sendMessage(chatId, text);
     res.status(201).json(result);
   } catch (err: any) {

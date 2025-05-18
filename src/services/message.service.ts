@@ -1,6 +1,6 @@
 import { supabase } from "..";
 import { MessageContentType, MessageHistory, MessageRole } from "../dtos/message.dto";
-import { getAnthropicResponse, getAnthropicResponseWithHistory } from "./anthropic.service";
+import { getAnthropicResponse, getAnthropicResponseWithHistory, getAnthropicChatTitle } from "./anthropic.service";
 
 interface Message {
   id: string;
@@ -74,7 +74,7 @@ export async function sendMessage(chatId: string, text: string) {
       sender: 'assistant',
       created_at: botMessage.created_at,
       chat_id: chatId
-    } as Message
+    } as Message,
   };
 }
 
