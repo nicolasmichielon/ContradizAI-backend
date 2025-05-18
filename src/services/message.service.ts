@@ -80,7 +80,7 @@ export async function sendMessage(chatId: string, text: string) {
 
 
 export async function getMessagesByChatId(chatId: string) {
-  const { data, error } = await supabase.from('messages').select('*').eq('chat_id', chatId).order('created_at', { ascending: false });
+  const { data, error } = await supabase.from('messages').select('*').eq('chat_id', chatId).order('created_at', { ascending: true });
   if (error) throw error;
   return data;
 }
