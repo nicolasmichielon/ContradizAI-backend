@@ -1,7 +1,7 @@
 import express from 'express';
 import { createChat, getChatById, getChatsByUserId, deleteChat } from '../controllers/chat.controller';
 import { authenticateToken } from '../middleware/auth.middleware';
-import { validateCreateChat } from '@/middleware/validation.middleware';
+import { validateCreateChat } from '../middleware/validation.middleware';
 
 const router = express.Router();
 
