@@ -1,6 +1,6 @@
 ContradizAi 🤖💬
 “Uma IA que te responde errado. Porque por que não?”
-- `https://github.com/seu-usuario/contradizai-backend.git`
+- `https://github.com/nicolasmichielon/contradizai-backend.git`
 
 Projeto criado no Hackathon Condecon 2025 com o tema: Coisas inúteis.
 Essa IA é inútil, irreverente e responde absurdos completos — com confiança.
@@ -19,7 +19,7 @@ A ideia principal do ContradizAi é oferecer uma experiência humorística onde 
 🖥️ Backend (API)
 🛠 Setup
 ```bash
-git clone https://github.com/seu-usuario/contradizai-backend.git
+git clone https://github.com/nicolasmichielon/contradizai-backend.git
 cd contradizai-backend
 npm install
 ```
