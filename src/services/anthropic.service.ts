@@ -81,5 +81,7 @@ Examples of bad titles:
       }
     ]
   });
-  return title;
+  return title.content[0]?.type === MessageContentType.TEXT
+    ? title.content[0].text
+    : "Untitled Chat";
 };
