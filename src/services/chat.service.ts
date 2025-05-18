@@ -1,7 +1,7 @@
 import { supabase } from "..";
 
 export async function createChat(userId: string) {
-  const { data, error } = await supabase.from('chats').insert([{ user_id: userId }]).single();
+  const { data, error } = await supabase.from('chats').insert([{ user_id: userId }]).select().single();
   if (error) throw error;
   return data;
 }
