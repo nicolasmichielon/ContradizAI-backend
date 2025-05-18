@@ -60,15 +60,15 @@ Rules for title generation:
 8. If the message is a question, focus on the core topic rather than the question format
 
 Examples of good titles:
-- "The Art of Productive Procrastination"
-- "JavaScript's Existential Crisis"
+- The Art of Productive Procrastination
+- JavaScript's Existential Crisis
 
 Examples of bad titles:
-- "New Chat About Productivity"
-- "Question About Sleep 😴"
-- "User's Query About Water"
-- "Let's Talk About Success"
-- "Conversation #123"`,
+- New Chat About Productivity
+- Question About Sleep 😴
+- User's Query About Water
+- Let's Talk About Success
+- Conversation #123`,
     messages: [
       {
         role: MessageRole.USER,
