@@ -7,8 +7,8 @@ import userRoutes from './routes/user.route';
 import chatRoutes from './routes/chat.route';
 import messageRoutes from './routes/message.route';
 import Anthropic from '@anthropic-ai/sdk';
+import { initializeDatabase } from './services/database.service';
 
-// Load environment variables
 dotenv.config();
 
 // Load anthropic API key
@@ -29,6 +29,14 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Initialize database tables
+initializeDatabase(supabase)
+  .then(() => console.log('Database initialized successfully'))
+  .catch((error) => {
+    console.error('Failed to initialize database:', error);
+    process.exit(1);
+  });
 
 // Middleware
 app.use(cors());
