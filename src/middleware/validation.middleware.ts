@@ -49,4 +49,5 @@ export const validateCreateChat = (req: Request, res: Response, next: NextFuncti
   if (!userId || !firstMessage) {
     return res.status(400).json({ error: 'Missing userId or firstMessage in request body' });
   }
+  next();
 };
