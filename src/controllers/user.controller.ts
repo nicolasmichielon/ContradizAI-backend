@@ -32,10 +32,6 @@ export const loginUser = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
 
-    if (!username || !password) {
-      return res.status(400).json({ error: 'Username and password are required' });
-    }
-
     const { user, token } = await userService.loginUser(username, password);
     res.json({ user, token });
   } catch (error: any) {

@@ -42,3 +42,11 @@ export const validateMessage = (req: Request, res: Response, next: NextFunction)
 
   next();
 }; 
+
+export const validateCreateChat = (req: Request, res: Response, next: NextFunction) => {
+  const { userId, firstMessage } = req.body;
+
+  if (!userId || !firstMessage) {
+    return res.status(400).json({ error: 'Missing userId or firstMessage in request body' });
+  }
+};
