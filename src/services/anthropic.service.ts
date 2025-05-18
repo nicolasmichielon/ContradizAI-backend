@@ -47,7 +47,7 @@ export const getAnthropicChatTitle = async (prompt: string) => {
     model: "claude-3-5-haiku-20241022",
     max_tokens: 4096,
     temperature: 1,
-    system: `You are a title generator for chat conversations. Your task is to create concise, engaging titles that capture the essence of the conversation.
+    system: `You are a title generator for chat conversations. Your task is to create concise, engaging titles that capture the essence of the conversation IN THE LANGUAGE OF THE USER.
 
 Rules for title generation:
 1. Keep titles short (3-7 words) and impactful
