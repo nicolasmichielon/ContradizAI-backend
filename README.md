@@ -1,88 +1,69 @@
-# ContradizAI Backend
+ContradizAi 🤖💬
+“Uma IA que te responde errado. Porque por que não?”
+- `https://github.com/seu-usuario/contradizai-backend.git`
 
-A Node.js backend service built with TypeScript and Supabase.
+Projeto criado no Hackathon Condecon 2025 com o tema: Coisas inúteis.
+Essa IA é inútil, irreverente e responde absurdos completos — com confiança.
 
-## Prerequisites
+A ideia principal do ContradizAi é oferecer uma experiência humorística onde os usuários podem fazer perguntas e receber respostas inesperadas e contraditórias, gerando situações engraçadas e surpreendentes.
 
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-- Supabase account and project
+🖼️ Veja um pouco do nosso design
+- `https://www.figma.com/proto/S938LYCf1pcyfoHjIfwmxj/Untitled?page-id=0%3A1&node-id=10-289&viewport=93%2C-1135%2C0.18&t=tI8oI5lj0sM1sx3v-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=10%3A289`
 
-## Setup
+🔧 Como Rodar o Projeto (5 Minutos ou Menos™)
+🧠 Requisitos
+-  Node.js 18+
+-  Navegador
+-  Conexão com Supabase (já configurado)
 
-1. Clone the repository:
+🖥️ Backend (API)
+🛠 Setup
 ```bash
-git clone <repository-url>
+git clone https://github.com/seu-usuario/contradizai-backend.git
 cd contradizai-backend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
+⚙️ Variáveis de Ambiente
+Crie um arquivo .env na raiz do projeto
+Você pode copiar o .env.example se ele estiver presente.
 
-3. Create a `.env` file in the root directory with the following variables:
-```env
-PORT=3000
-NODE_ENV=development
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
-```
-
-4. Build the project:
-```bash
-npm run build
-```
-
-## Development
-
-To start the development server with hot-reload:
+▶️ Rodar o servidor
 ```bash
 npm run dev
 ```
+O servidor estará disponível em:
+📍 http://localhost:3000
 
-The server will start on http://localhost:3000 (or the port specified in your .env file).
-
-## Available Scripts
-
-- `npm start` - Start the production server
-- `npm run dev` - Start the development server with hot-reload
-- `npm run build` - Build the TypeScript project
-- `npm run lint` - Run ESLint
-- `npm test` - Run tests
-
-## Project Structure
-
+📦 Estrutura do Projeto
+```bash
+contradizai-backend/
+├── src/
+│   ├── controllers/      # Regras das rotas
+│   ├── routes/           # Endpoints da API
+│   ├── services/         # Lógica da aplicação
+│   ├── utils/            # Supabase client
+│   └── index.ts          # Entry point
 ```
-src/
-├── index.ts           # Application entry point
-├── types/            # TypeScript type definitions
-├── routes/           # API routes
-├── controllers/      # Route controllers
-├── services/         # Business logic
-├── middleware/       # Custom middleware
-└── utils/           # Utility functions
-```
+📽️ Demo Vídeo
+🟣 Link do vídeo: [YouTube ou DevPost Video Link]
+🎬 Duração: 2 minutos
+🎭 Mostra o funcionamento real do app com humor, erros úteis, e caos calculado.
 
-## API Documentation
+🛠️ Stack Utilizada
+- Frontend: Next.js 15, React, Tailwind CSS, TypeScript
+- Backend: Node.js, Express, Supabase, TypeScript
+- Banco: Supabase PostgreSQL
 
-The API documentation will be available at `/api-docs` when running in development mode.
+📝 Licença
+- MIT — veja o arquivo LICENSE para mais informações.
 
-## Environment Variables
+👨‍💻 Time
+- Nícolas Michielon Cunha
+- Nicholas Derham
+- Nicholas Jasper
+- Richard de Souza Bercheli
 
-- `PORT` - Server port (default: 3000)
-- `NODE_ENV` - Environment (development/production)
-- `SUPABASE_URL` - Your Supabase project URL
-- `SUPABASE_ANON_KEY` - Your Supabase anonymous key
-- `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key
-
-## Contributing
-
-1. Create a new branch for your feature
-2. Make your changes
-3. Submit a pull request
-
-## License
-
-MIT 
+🏆 Hackathon Condecon
+📍 17–18 de Maio de 2025
+🎯 Tema: Coisas Inúteis
+🏛️ Organização: Receita Estadual do Paraná
